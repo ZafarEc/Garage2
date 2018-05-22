@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Garage2Mvc.DataAccesslayer;
 using Garage2Mvc.Models;
 
+
 namespace Garage2Mvc.Controllers
 {
     public class ParkedVehiclesController : Controller
@@ -22,7 +23,7 @@ namespace Garage2Mvc.Controllers
         }
         public ActionResult Vehicles()
         {
-            var model = db.ParkedVehicles.Where(i => i.Type == "Vehicles").ToList();
+            var model = db.ParkedVehicles.ToList();
             return View(model);
 
         }
@@ -58,7 +59,7 @@ namespace Garage2Mvc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Type,RegistrationNumber,Color,Brand,Model,NumberOfWheels")] ParkedVehicle parkedVehicle)
+        public ActionResult Create([Bind(Include = "Id,VehicleType,RegistrationNumber,Color,Brand,Model,NumberOfWheels")] ParkedVehicle parkedVehicle)
         {
 
             if (ModelState.IsValid)
