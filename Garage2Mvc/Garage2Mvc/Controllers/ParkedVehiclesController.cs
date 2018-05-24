@@ -17,9 +17,16 @@ namespace Garage2Mvc.Controllers
         private StorageContext db = new StorageContext();
 
         // GET: ParkedVehicles
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.ParkedVehicles.ToList());
+            var parkedVehicles = from s in db.ParkedVehicles
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                 parkedVehicles = parkedVehicles.Where(s => s.RegistrationNumber.Contains(searchString)
+                                       || s.Model.Contains(searchString));
+            }
+            return View(parkedVehicles.ToList());
         }
         public ActionResult Vehicles()
         {
