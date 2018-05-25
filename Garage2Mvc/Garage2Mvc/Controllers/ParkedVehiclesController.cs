@@ -113,7 +113,7 @@ namespace Garage2Mvc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Type,RegistrationNumber,Color,Brand,Model,NumberOfWheels")] ParkedVehicle parkedVehicle)
+        public ActionResult Edit([Bind(Include = "Id,VehicleType,RegistrationNumber,Color,Brand,Model,NumberOfWheels")] ParkedVehicle parkedVehicle)
         {
             if (ModelState.IsValid)
             {
@@ -129,9 +129,13 @@ namespace Garage2Mvc.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
+            //ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
+            ParkedVehicle p = db.ParkedVehicles.Find(id);
+            VehicleCheckOut parkedVehicle = new VehicleCheckOut(p.Id, p.RegistrationNumber, p.ParkTime, DateTime.Now);
+
             if (parkedVehicle == null)
             {
                 return HttpNotFound();
@@ -139,8 +143,11 @@ namespace Garage2Mvc.Controllers
             return View(parkedVehicle);
         }
 
-        // POST: ParkedVehicles/Delete/5
-        [HttpPost, ActionName("CheckOut")] // Delete
+
+
+
+// POST: ParkedVehicles/Delete/5
+[HttpPost, ActionName("CheckOut")] // Delete
         [ValidateAntiForgeryToken]
         public ActionResult CheckOutConfirmed(int id)
         {

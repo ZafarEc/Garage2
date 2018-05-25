@@ -19,7 +19,7 @@ namespace Garage2Mvc.Models
         [StringLength(8, MinimumLength = 4, ErrorMessage = "A name must be between 4 and 8 letters long")]
         public string RegistrationNumber { get; set; }
 
-
+        //[RegularExpression ( "[a-z]", ErrorMessage = "You have to have write valid input") ]
         public string Color { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "You have to have a vehicle Brand")]
@@ -30,7 +30,7 @@ namespace Garage2Mvc.Models
         public int NumberOfWheels { get; set; }
 
         //public DateTime Time { get; }
-        //[Display]
+        [Display(Name = "CheckIn")]
         public  DateTime ParkTime  { get; set; }
 
 

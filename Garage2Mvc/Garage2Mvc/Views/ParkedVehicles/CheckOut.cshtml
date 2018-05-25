@@ -1,25 +1,18 @@
-﻿@model Garage2Mvc.Models.ParkedVehicle
+﻿@model Garage2Mvc.Models.VehicleCheckOut
 
 @{
     //ViewBag.Title = "Delete";
     ViewBag.Title = "CheckOut";
 }
 
-<h2>Delete</h2>
+<h2>CheckOut</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>ParkedVehicle</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.VehicleType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VehicleType)
-        </dd>
-
+        
         <dt>
             @Html.DisplayNameFor(model => model.RegistrationNumber)
         </dt>
@@ -29,36 +22,20 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Color)
+            @Html.DisplayNameFor(model => model.ParkTime)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Color)
+            @Html.DisplayFor(model => model.ParkTime)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Brand)
+            @Html.DisplayNameFor(model => model.NowTime)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Brand)
+            @Html.DisplayFor(model => model.NowTime)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberOfWheels)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumberOfWheels)
-        </dd>
+       
 
     </dl>
 
