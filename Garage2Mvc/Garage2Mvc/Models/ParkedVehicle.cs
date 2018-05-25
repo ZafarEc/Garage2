@@ -8,6 +8,8 @@ namespace Garage2Mvc.Models
 {
     public class ParkedVehicle
     {
+       
+
         public int Id { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "You have to have a vehicle Type")]
@@ -27,7 +29,11 @@ namespace Garage2Mvc.Models
         [Range(2,12, ErrorMessage = "This not a valid wheel number")]
         public int NumberOfWheels { get; set; }
 
- 
+        //public DateTime Time { get; }
+        //[Display]
+        public  DateTime ParkTime  { get; set; }
+
+
     }
    public enum VehicleType
     {

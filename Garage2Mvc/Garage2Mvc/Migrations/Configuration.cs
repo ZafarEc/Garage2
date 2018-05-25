@@ -20,7 +20,7 @@ namespace Garage2Mvc.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
-            ParkedVehicle vhe = new ParkedVehicle() {VehicleType = VehicleType.Bus,RegistrationNumber="ABC542",Color ="Black",Brand= "Volovo",Model="xc90",NumberOfWheels= 4   };
+            ParkedVehicle vhe = new ParkedVehicle() {VehicleType =VehicleType.Bus ,RegistrationNumber="ABC542",Color ="Black",Brand= "Volovo",Model="xc90",NumberOfWheels= 4, ParkTime = DateTime.Now};
             context.ParkedVehicles.AddOrUpdate(t => t.VehicleType, vhe);
 
 

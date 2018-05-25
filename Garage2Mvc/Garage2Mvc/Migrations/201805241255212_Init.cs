@@ -18,6 +18,7 @@ namespace Garage2Mvc.Migrations
                         Brand = c.String(nullable: false, maxLength: 15),
                         Model = c.String(),
                         NumberOfWheels = c.Int(nullable: false),
+                        ParkTime = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

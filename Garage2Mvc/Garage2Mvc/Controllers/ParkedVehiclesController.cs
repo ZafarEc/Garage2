@@ -34,10 +34,10 @@ namespace Garage2Mvc.Controllers
             return View(model);
 
         }
-        public ActionResult CheckOut()
-        {
-            return View();
-        }
+        //public ActionResult CheckOut()
+        //{
+        //    return View();
+        //}
 
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id)
@@ -58,16 +58,30 @@ namespace Garage2Mvc.Controllers
         public ActionResult Create()
         {
 
+
             return View();
         }
 
         // POST: ParkedVehicles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[Bind(Include = "Id,VehicleType,RegistrationNumber,Color,Brand,Model,NumberOfWheels,ParkTime")]
+        //ParkedVehicle parkedVehicle
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,VehicleType,RegistrationNumber,Color,Brand,Model,NumberOfWheels")] ParkedVehicle parkedVehicle)
+        public ActionResult Create(VehicleType VehicleType, string RegistrationNumber,  string Color, string Brand, string Model, int NumberOfWheels)
         {
+            ParkedVehicle parkedVehicle = new ParkedVehicle()
+            {
+                VehicleType = VehicleType,
+                RegistrationNumber = RegistrationNumber,
+                Color = Color,
+                Brand = Brand,
+                Model = Model,
+                NumberOfWheels = NumberOfWheels,
+                ParkTime = DateTime.Now
+
+            };
 
             if (ModelState.IsValid)
             {
@@ -111,7 +125,7 @@ namespace Garage2Mvc.Controllers
         }
 
         // GET: ParkedVehicles/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult CheckOut(int? id)// Delete
         {
             if (id == null)
             {
@@ -126,9 +140,9 @@ namespace Garage2Mvc.Controllers
         }
 
         // POST: ParkedVehicles/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("CheckOut")] // Delete
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult CheckOutConfirmed(int id)
         {
             ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
             db.ParkedVehicles.Remove(parkedVehicle);

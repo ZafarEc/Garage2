@@ -3,14 +3,18 @@
 @{
     ViewBag.Title = "Create";
 }
+@{
+    ViewBag.Title = "DateTime.Now";
+}
+
 
 <h2>Park</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Park New Vehicle</h4>
         <hr />
