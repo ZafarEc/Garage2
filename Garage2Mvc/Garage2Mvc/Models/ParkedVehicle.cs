@@ -19,14 +19,15 @@ namespace Garage2Mvc.Models
         [StringLength(8, MinimumLength = 4, ErrorMessage = "A name must be between 4 and 8 letters long")]
         public string RegistrationNumber { get; set; }
 
-        //[RegularExpression ( "[a-z]", ErrorMessage = "You have to have write valid input") ]
+        [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-za-z]+))$", ErrorMessage = "plese enter upper case lower case alphabet only ")]
         public string Color { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "You have to have a vehicle Brand")]
         [StringLength(15, MinimumLength = 2, ErrorMessage = "A name must be between 2 and 15 letters long")]
+        [RegularExpression(@"^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-za-z]+))$", ErrorMessage = "plese enter upper case lower case alphabet only ")]
         public string Brand { get; set; }
         public string Model { get; set; }
-        [Range(2,12, ErrorMessage = "This not a valid wheel number")]
+        [Range(2,12, ErrorMessage = "plese enter a valid wheel number")]
         public int NumberOfWheels { get; set; }
 
         //public DateTime Time { get; }

@@ -17,14 +17,27 @@ namespace Garage2Mvc.Controllers
         private StorageContext db = new StorageContext();
 
         // GET: ParkedVehicles
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string sortOrder,string searchString)
         {
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             var parkedVehicles = from s in db.ParkedVehicles
                            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                  parkedVehicles = parkedVehicles.Where(s => s.RegistrationNumber.Contains(searchString)
                                        || s.Model.Contains(searchString));
+            }
+            switch(sortOrder)
+            {
+                case "Date":
+                    parkedVehicles = parkedVehicles.OrderBy(s => s.ParkTime);
+                    break;
+                case "date_desc":
+                    parkedVehicles = parkedVehicles.OrderByDescending(s => s.ParkTime);
+                    break;
+                default:
+                    parkedVehicles = parkedVehicles.OrderBy(s => s.VehicleType);
+                    break;
             }
             return View(parkedVehicles.ToList());
         }
@@ -113,8 +126,10 @@ namespace Garage2Mvc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,VehicleType,RegistrationNumber,Color,Brand,Model,NumberOfWheels")] ParkedVehicle parkedVehicle)
+        public ActionResult Edit([Bind(Include = "Id,VehicleType,RegistrationNumber,Color,Brand,Model,NumberOfWheels,ParkTime")] ParkedVehicle parkedVehicle)
         {
+            //ParkedVehicle temVehicle = db.ParkedVehicles.Find(parkedVehicle.Id);
+            //parkedVehicle.ParkTime = temVehicle.ParkTime;
             if (ModelState.IsValid)
             {
                 db.Entry(parkedVehicle).State = EntityState.Modified;

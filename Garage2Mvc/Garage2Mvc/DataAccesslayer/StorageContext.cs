@@ -15,5 +15,6 @@ namespace Garage2Mvc.DataAccesslayer
         }
         public DbSet<Models.ParkedVehicle> ParkedVehicles { get; set; }
 
+        public System.Data.Entity.DbSet<Garage2Mvc.Models.VehicleReceipt> VehicleReceipts { get; set; }
     }
 }

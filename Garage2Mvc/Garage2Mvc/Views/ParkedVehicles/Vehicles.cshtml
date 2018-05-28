@@ -21,14 +21,17 @@
             @Html.DisplayNameFor(model => model.Color)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Brand)
+            @Html.DisplayNameFor(model => model.ParkTime)
         </th>
-        <th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>*@
+        @*<th>
             @Html.DisplayNameFor(model => model.Model)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NumberOfWheels)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -45,14 +48,17 @@
                 @Html.DisplayFor(modelItem => item.Color)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Brand)
+                @Html.DisplayFor(modelItem => item.ParkTime)
             </td>
-            <td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>*@
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Model)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NumberOfWheels)
-            </td>
+            </td>*@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
