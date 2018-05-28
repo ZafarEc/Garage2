@@ -8,7 +8,7 @@ namespace Garage2Mvc.Models
     public class VehicleReceipt
     {
 
-        public VehicleReceipt(int id,string registrationNumber,DateTime parkTime, DateTime nowTime )
+        public VehicleReceipt(int id,string registrationNumber,DateTime parkTime, DateTime nowTime, TimeSpan totalTime )
 
         {
 
@@ -16,6 +16,7 @@ namespace Garage2Mvc.Models
             RegistrationNumber = registrationNumber;
             ParkTime = parkTime;
             NowTime = nowTime;
+            TotalTime = totalTime;
 
         }
 
@@ -23,6 +24,7 @@ namespace Garage2Mvc.Models
         public string  RegistrationNumber { get; set; }
         public DateTime ParkTime { get; set; }
         public DateTime NowTime { get; set; }
+        public TimeSpan TotalTime { get; set; }
 
 
 
