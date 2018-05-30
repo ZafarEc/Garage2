@@ -166,6 +166,14 @@
     <Compile Include="Migrations\201805281353218_VehicleReceipt.Designer.cs">
       <DependentUpon>201805281353218_VehicleReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805300814425_VehicleReceipt1.cs" />
+    <Compile Include="Migrations\201805300814425_VehicleReceipt1.Designer.cs">
+      <DependentUpon>201805300814425_VehicleReceipt1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805300934593_VehicleReceipt2.cs" />
+    <Compile Include="Migrations\201805300934593_VehicleReceipt2.Designer.cs">
+      <DependentUpon>201805300934593_VehicleReceipt2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
     <Compile Include="Models\VehicleReceipt.cs" />
@@ -215,7 +223,7 @@
     <Content Include="Views\ParkedVehicles\Edit.cshtml" />
     <Content Include="Views\ParkedVehicles\Index.cshtml" />
     <Content Include="Views\ParkedVehicles\Vehicles.cshtml" />
-    <Content Include="Views\ParkedVehicles\CheckOutReceipt.cshtml" />
+    <Content Include="Views\ParkedVehicles\Receipt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -243,6 +251,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805281353218_VehicleReceipt.resx">
       <DependentUpon>201805281353218_VehicleReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805300814425_VehicleReceipt1.resx">
+      <DependentUpon>201805300814425_VehicleReceipt1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805300934593_VehicleReceipt2.resx">
+      <DependentUpon>201805300934593_VehicleReceipt2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

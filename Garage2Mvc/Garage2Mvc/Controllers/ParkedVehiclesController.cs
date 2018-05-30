@@ -162,16 +162,17 @@ namespace Garage2Mvc.Controllers
 
 
 // POST: ParkedVehicles/Delete/5
-[HttpPost, ActionName("CheckOut")] // Delete
+        [HttpPost] // Delete
         [ValidateAntiForgeryToken]
-        public ActionResult CheckOut(int id)
+        public ActionResult Receipt(int id)
         {
             var t = DateTime.Now - db.ParkedVehicles.Find(id).ParkTime;
             ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
-            VehicleReceipt vehicleReceipt = new VehicleReceipt(parkedVehicle.Id, parkedVehicle.RegistrationNumber,parkedVehicle.ParkTime, DateTime.Now,t);
+            VehicleReceipt vehicleReceipt = new VehicleReceipt(parkedVehicle.Id, parkedVehicle.RegistrationNumber,parkedVehicle.ParkTime,/* DateTime.Now,*/t);
+          
             db.ParkedVehicles.Remove(parkedVehicle);
             db.SaveChanges();
-            return View("CheckOutReceipt");
+            return View(vehicleReceipt);
         }
 
         protected override void Dispose(bool disposing)

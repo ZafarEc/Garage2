@@ -8,23 +8,25 @@ namespace Garage2Mvc.Models
     public class VehicleReceipt
     {
 
-        public VehicleReceipt(int id,string registrationNumber,DateTime parkTime, DateTime nowTime, TimeSpan totalTime )
+        public VehicleReceipt(int id,string registrationNumber,DateTime parkTime,/* DateTime nowTime*/ TimeSpan totalTime )
 
         {
 
             Id = id;
             RegistrationNumber = registrationNumber;
             ParkTime = parkTime;
-            NowTime = nowTime;
+            //NowTime = nowTime;
             TotalTime = totalTime;
+            Price = (TotalTime.Minutes + 1) * 0.5;
 
         }
 
         public int Id { get; set; }
         public string  RegistrationNumber { get; set; }
         public DateTime ParkTime { get; set; }
-        public DateTime NowTime { get; set; }
+        //public DateTime NowTime { get; set; }
         public TimeSpan TotalTime { get; set; }
+        public double Price { get; set; }
 
 
 

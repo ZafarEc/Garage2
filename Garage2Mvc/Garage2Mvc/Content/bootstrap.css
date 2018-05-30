@@ -195,6 +195,9 @@ input[type="radio"] {
   padding: 0;
   box-sizing: border-box;
 }
+.btn-default {
+    background-color: #e03410;
+}
 
 input[type="search"] {
   -webkit-box-sizing: content-box;
@@ -2047,22 +2050,26 @@ fieldset[disabled] .btn {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-
+/*.btn-default {
+    color: #333333;
+    background-color: #b94a48;
+    border-color: #080808;
+}*/
 .btn-default {
   color: #333333;
   background-color: #ffffff;
   border-color: #cccccc;
 }
 
-.btn-default:hover,
-.btn-default:focus,
-.btn-default:active,
-.btn-default.active,
-.open .dropdown-toggle.btn-default {
-  color: #333333;
-  background-color: #ebebeb;
-  border-color: #adadad;
-}
+    .btn-default:hover,
+    .btn-default:focus,
+    .btn-default:active,
+    .btn-default.active,
+    .open .dropdown-toggle.btn-default {
+        color: #333333;
+        background-color: #d6e9c6;
+        border-color: #adadad;
+    }
 
 .btn-default:active,
 .btn-default.active,

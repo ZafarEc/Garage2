@@ -1,12 +1,11 @@
 ﻿@model Garage2Mvc.Models.VehicleReceipt
 
 @{
-    ViewBag.Title = "CheckOutReceipt";
+    ViewBag.Title = "Receipt";
 }
 
-<h2>CheckOutReceipt</h2>
+<h2>Receipt</h2>
 
-<h3>Thank you, Have a nice Time, Drive Carefully</h3>
 <div>
     <h4>VehicleReceipt</h4>
     <hr />
@@ -27,7 +26,6 @@
             @Html.DisplayFor(model => model.ParkTime)
         </dd>
 
-
         <dt>
             @Html.DisplayNameFor(model => model.TotalTime)
         </dt>
@@ -36,15 +34,15 @@
             @Html.DisplayFor(model => model.TotalTime)
         </dd>
 
-
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price) Kr
+        </dd>
     </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            @*<input type="submit" value="Delete" class="btn btn-default" /> |*@
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
