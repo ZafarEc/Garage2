@@ -154,9 +154,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805211153343_Init.cs" />
-    <Compile Include="Migrations\201805211153343_Init.Designer.cs">
-      <DependentUpon>201805211153343_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201805241255212_Init.cs" />
+    <Compile Include="Migrations\201805241255212_Init.Designer.cs">
+      <DependentUpon>201805241255212_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281245232_Add-Migration VehicleReceipt.cs" />
+    <Compile Include="Migrations\201805281245232_Add-Migration VehicleReceipt.Designer.cs">
+      <DependentUpon>201805281245232_Add-Migration VehicleReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805281353218_VehicleReceipt.cs" />
+    <Compile Include="Migrations\201805281353218_VehicleReceipt.Designer.cs">
+      <DependentUpon>201805281353218_VehicleReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805300814425_VehicleReceipt1.cs" />
+    <Compile Include="Migrations\201805300814425_VehicleReceipt1.Designer.cs">
+      <DependentUpon>201805300814425_VehicleReceipt1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805300934593_VehicleReceipt2.cs" />
+    <Compile Include="Migrations\201805300934593_VehicleReceipt2.Designer.cs">
+      <DependentUpon>201805300934593_VehicleReceipt2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201805211439541_Init1.cs" />
     <Compile Include="Migrations\201805211439541_Init1.Designer.cs">
@@ -164,6 +180,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
+    <Compile Include="Models\VehicleReceipt.cs" />
+    <Compile Include="Models\VehicleCheckOut.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,14 +222,16 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\ParkedVehicles\Create.cshtml" />
-    <Content Include="Views\ParkedVehicles\Delete.cshtml" />
+    <Content Include="Views\ParkedVehicles\CheckOut.cshtml" />
     <Content Include="Views\ParkedVehicles\Details.cshtml" />
     <Content Include="Views\ParkedVehicles\Edit.cshtml" />
     <Content Include="Views\ParkedVehicles\Index.cshtml" />
     <Content Include="Views\ParkedVehicles\Vehicles.cshtml" />
+    <Content Include="Views\ParkedVehicles\Receipt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -227,8 +247,20 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805211153343_Init.resx">
-      <DependentUpon>201805211153343_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805241255212_Init.resx">
+      <DependentUpon>201805241255212_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281245232_Add-Migration VehicleReceipt.resx">
+      <DependentUpon>201805281245232_Add-Migration VehicleReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805281353218_VehicleReceipt.resx">
+      <DependentUpon>201805281353218_VehicleReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805300814425_VehicleReceipt1.resx">
+      <DependentUpon>201805300814425_VehicleReceipt1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805300934593_VehicleReceipt2.resx">
+      <DependentUpon>201805300934593_VehicleReceipt2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805211439541_Init1.resx">
       <DependentUpon>201805211439541_Init1.cs</DependentUpon>
