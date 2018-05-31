@@ -154,25 +154,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805241255212_Init.cs" />
-    <Compile Include="Migrations\201805241255212_Init.Designer.cs">
-      <DependentUpon>201805241255212_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805281245232_Add-Migration VehicleReceipt.cs" />
-    <Compile Include="Migrations\201805281245232_Add-Migration VehicleReceipt.Designer.cs">
-      <DependentUpon>201805281245232_Add-Migration VehicleReceipt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805281353218_VehicleReceipt.cs" />
-    <Compile Include="Migrations\201805281353218_VehicleReceipt.Designer.cs">
-      <DependentUpon>201805281353218_VehicleReceipt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805300814425_VehicleReceipt1.cs" />
-    <Compile Include="Migrations\201805300814425_VehicleReceipt1.Designer.cs">
-      <DependentUpon>201805300814425_VehicleReceipt1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805300934593_VehicleReceipt2.cs" />
-    <Compile Include="Migrations\201805300934593_VehicleReceipt2.Designer.cs">
-      <DependentUpon>201805300934593_VehicleReceipt2.cs</DependentUpon>
+    <Compile Include="Migrations\201805310710542_Init.cs" />
+    <Compile Include="Migrations\201805310710542_Init.Designer.cs">
+      <DependentUpon>201805310710542_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
@@ -243,20 +227,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805241255212_Init.resx">
-      <DependentUpon>201805241255212_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805281245232_Add-Migration VehicleReceipt.resx">
-      <DependentUpon>201805281245232_Add-Migration VehicleReceipt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805281353218_VehicleReceipt.resx">
-      <DependentUpon>201805281353218_VehicleReceipt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805300814425_VehicleReceipt1.resx">
-      <DependentUpon>201805300814425_VehicleReceipt1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805300934593_VehicleReceipt2.resx">
-      <DependentUpon>201805300934593_VehicleReceipt2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805310710542_Init.resx">
+      <DependentUpon>201805310710542_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

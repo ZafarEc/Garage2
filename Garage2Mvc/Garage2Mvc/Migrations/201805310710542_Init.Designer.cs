@@ -7,13 +7,13 @@ namespace Garage2Mvc.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddMigrationVehicleReceipt : IMigrationMetadata
+    public sealed partial class Init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMigrationVehicleReceipt));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805281245232_Add-Migration VehicleReceipt"; }
+            get { return "201805310710542_Init"; }
         }
         
         string IMigrationMetadata.Source
