@@ -149,16 +149,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ParkedVehiclesController.cs" />
     <Compile Include="DataAccesslayer\StorageContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805301314061_Init.cs" />
-    <Compile Include="Migrations\201805301314061_Init.Designer.cs">
-      <DependentUpon>201805301314061_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201806120952203_test.cs" />
+    <Compile Include="Migrations\201806120952203_test.Designer.cs">
+      <DependentUpon>201806120952203_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
     <Compile Include="Models\VehicleReceipt.cs" />
     <Compile Include="Models\VehicleCheckOut.cs" />
@@ -209,6 +211,11 @@
     <Content Include="Views\ParkedVehicles\Index.cshtml" />
     <Content Include="Views\ParkedVehicles\Vehicles.cshtml" />
     <Content Include="Views\ParkedVehicles\Receipt.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -229,8 +236,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805301314061_Init.resx">
-      <DependentUpon>201805301314061_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806120952203_test.resx">
+      <DependentUpon>201806120952203_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -34,9 +35,15 @@ namespace Garage2Mvc.Models
         [Display(Name = "CheckIn")]
         public  DateTime ParkTime  { get; set; }
 
+        [ForeignKey("Member")]
+        public int MemberId { get; set; }
+
+        public virtual Member Member { get; set; }
+
 
     }
-   public enum VehicleType
+
+  public enum VehicleType
     {
         Car,
         Bus,

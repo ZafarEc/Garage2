@@ -14,13 +14,15 @@ namespace Garage2Mvc.Migrations
         }
 
         protected override void Seed(Garage2Mvc.DataAccesslayer.StorageContext context)
+
         {
             //  This method will be called after migrating to the latest version.
 
+
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-
-            ParkedVehicle vhe = new ParkedVehicle() {RegistrationNumber = "ABC542", VehicleType = VehicleType.Bus,Color = "Black",Brand= "Volovo",Model="xc90",NumberOfWheels= 4, ParkTime = DateTime.Now};
+            Member member = new Member() { FirstName = "Cathy", LastName = "Ke", PhoneNumber = "070123456", Email = "cathy085@gmail.com", Address = "Homeless"  };
+            ParkedVehicle vhe = new ParkedVehicle() {RegistrationNumber = "ABC542", VehicleType = VehicleType.Bus,Color = "Black",Brand= "Volovo",Model="xc90",NumberOfWheels= 4, ParkTime = DateTime.Now };
             context.ParkedVehicles.AddOrUpdate(t => t.RegistrationNumber, vhe);
 
 

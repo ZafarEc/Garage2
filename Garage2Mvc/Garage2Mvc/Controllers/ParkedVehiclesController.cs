@@ -16,6 +16,19 @@ namespace Garage2Mvc.Controllers
     {
         private StorageContext db = new StorageContext();
 
+        //public ActionResult Index(string member)
+        //{
+        //    var parkedVehicles = db.ParkedVehicles.Include(p => p.Member);
+
+        //    if (member.)
+        //    {
+        //        parkedVehicles = parkedVehicles.Where(p => p.Member.Id == memberId);
+        //    }
+            
+        //    return View( );
+        //}
+
+
         // GET: ParkedVehicles
         public ActionResult Index(string sortOrder,string searchString)
         {
@@ -41,6 +54,8 @@ namespace Garage2Mvc.Controllers
             }
             return View(parkedVehicles.ToList());
         }
+        
+
         public ActionResult Vehicles()
         {
             var model = db.ParkedVehicles.ToList();
@@ -82,10 +97,11 @@ namespace Garage2Mvc.Controllers
         //ParkedVehicle parkedVehicle
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(VehicleType VehicleType, string RegistrationNumber,  string Color, string Brand, string Model, int NumberOfWheels)
+        public ActionResult Create(Member MemberEmail,VehicleType VehicleType, string RegistrationNumber,  string Color, string Brand, string Model, int NumberOfWheels)
         {
             ParkedVehicle parkedVehicle = new ParkedVehicle()
             {
+                Member = MemberEmail,
                 VehicleType = VehicleType,
                 RegistrationNumber = RegistrationNumber,
                 Color = Color,
