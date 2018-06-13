@@ -9,7 +9,7 @@ namespace Garage2Mvc.DataAccesslayer
 {
     public class StorageContext : DbContext
     {
-        public StorageContext() : base ("DefaultConnection1")
+        public StorageContext() : base ("ZafarCathy")
         {
 
         }

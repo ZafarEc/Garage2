@@ -45,8 +45,8 @@ namespace Garage2Mvc.Models
 
   public enum VehicleType
     {
-        Car,
         Bus,
+        Car,
         MotorCycle
         
 

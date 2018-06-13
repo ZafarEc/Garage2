@@ -32,7 +32,7 @@ namespace Garage2Mvc.Controllers
         // GET: ParkedVehicles
         public ActionResult Index(string sortOrder,string searchString)
         {
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.DateSortVehicle = sortOrder == "Date" ? "date_desc" : "Date";
             var parkedVehicles = from s in db.ParkedVehicles
                            select s;
             if (!String.IsNullOrEmpty(searchString))
