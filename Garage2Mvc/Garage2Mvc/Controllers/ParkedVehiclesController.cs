@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -80,32 +81,96 @@ namespace Garage2Mvc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         //[Bind(Include = "Id,VehicleType,RegistrationNumber,Color,Brand,Model,NumberOfWheels,ParkTime")]
         //ParkedVehicle parkedVehicle
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(VehicleType VehicleType, string RegistrationNumber,  string Color, string Brand, string Model, int NumberOfWheels)
+        // [HttpPost]
+        // [ValidateAntiForgeryToken]
+        // public ActionResult Create( string RegistrationNumber,  string Color, string Brand, string Model, int NumberOfWheels)
+        // {
+        //     ParkedVehicle parkedVehicle = new ParkedVehicle()
+        //     {
+        //         MemberId = 4,
+        //         //VehicleType = VehicleType,
+        //         RegistrationNumber = RegistrationNumber,
+        //         Color = Color,
+        //         Brand = Brand,
+        //         Model = Model,
+        //         NumberOfWheels = NumberOfWheels,
+        //         ParkTime = DateTime.Now,
+        //         VTId = 1
+
+
+        //     };
+
+        //     if (ModelState.IsValid)
+        //     {
+        //         db.ParkedVehicles.Add(parkedVehicle);
+        //         db.SaveChanges();
+        //         return RedirectToAction("Index");
+        //     }
+
+        //     return View(parkedVehicle);
+        // }
+        //upon old
+
+      //  POST: ParkedVehicles/Create
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+    // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,RegistrationNumber,Color,Brand,Model,CheckIn,VehicleType,NumberOfWheels,MemberID")] ParkedVehicle parkedVehicle)
         {
-            ParkedVehicle parkedVehicle = new ParkedVehicle()
-            {
-                VehicleType = VehicleType,
-                RegistrationNumber = RegistrationNumber,
-                Color = Color,
-                Brand = Brand,
-                Model = Model,
-                NumberOfWheels = NumberOfWheels,
-                ParkTime = DateTime.Now
 
-            };
+            DateTime CheckIn = DateTime.Now;
+            //db.Vehicles.Any(p => p.RegNumber == c);
+            //var no = db.Vehicles.FirstOrDefault(w => w.Id == );
+            //if (no == null)
 
-            if (ModelState.IsValid)
+            try
             {
-                db.ParkedVehicles.Add(parkedVehicle);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+
+                if (ModelState.IsValid)
+                {
+                    db.ParkedVehicles.Add(parkedVehicle);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
+
+
+
+
+
+
+
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.)
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+            PopulateMembersDropDownList(parkedVehicle.MemberId);
 
             return View(parkedVehicle);
         }
 
+
+        private void PopulateMembersDropDownList(object selectedMember = null)
+        {
+            var membersQuery = from d in db.Members
+                               orderby d.FirstName
+                               select d;
+            ViewBag.MemberId = new SelectList(membersQuery, "MemberID", "FirstName", selectedMember);
+        }
+
+
+
+
+
+
+
+
+
+
+        //End
         // GET: ParkedVehicles/Edit/5
         public ActionResult Edit(int? id)
         {
