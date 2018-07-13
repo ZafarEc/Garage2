@@ -37,7 +37,7 @@ namespace Garage2Mvc.Controllers
                     parkedVehicles = parkedVehicles.OrderByDescending(s => s.ParkTime);
                     break;
                 default:
-                    parkedVehicles = parkedVehicles.OrderBy(s => s.VehicleType);
+                    parkedVehicles = parkedVehicles.OrderBy(s => s.VehicleType.VTName);
                     break;
             }
             return View(parkedVehicles.ToList());
@@ -71,9 +71,13 @@ namespace Garage2Mvc.Controllers
         // GET: ParkedVehicles/Create
         public ActionResult Create()
         {
-
-
-            return View();
+            var model = new ParkedVehicleViewModel()
+            {
+                Members = db.Members,
+                ValidVehicleTypes = db.VehicleTypes
+            };
+          
+            return View(model);
         }
 
         // POST: ParkedVehicles/Create
@@ -116,10 +120,22 @@ namespace Garage2Mvc.Controllers
     // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RegistrationNumber,Color,Brand,Model,CheckIn,VehicleType,NumberOfWheels,MemberID")] ParkedVehicle parkedVehicle)
+        public ActionResult Create([Bind(Include = "Id,RegistrationNumber,Color,Brand,Model,VTId,NumberOfWheels,MemberID")] ParkedVehicleViewModel pVModel)
         {
+            //DateTime CheckIn = DateTime.Now;
 
-            DateTime CheckIn = DateTime.Now;
+            var parkedVehicle = new ParkedVehicle()
+            {
+                ParkTime = DateTime.Now,
+                Brand = pVModel.Brand,
+                RegistrationNumber = pVModel.RegistrationNumber,
+                Model = pVModel.Model,
+                NumberOfWheels = pVModel.NumberOfWheels,
+                Color = pVModel.Color,
+                MemberId = pVModel.MemberId,
+                VTId = pVModel.VTId              
+
+            };
             //db.Vehicles.Any(p => p.RegNumber == c);
             //var no = db.Vehicles.FirstOrDefault(w => w.Id == );
             //if (no == null)

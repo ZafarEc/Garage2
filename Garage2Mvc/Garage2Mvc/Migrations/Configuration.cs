@@ -22,9 +22,14 @@ namespace Garage2Mvc.Migrations
             //  to avoid creating duplicate seed data.
             Member mem = new Member() { FirstName = "Zafar", LastName = "Iq", PhoneNo = "017345687", Email = "rasal@gmail.com", Address = "VårstaVägen" };
             context.Members.AddOrUpdate(m => m.PhoneNo,mem);
+            context.SaveChanges();
 
-            ParkedVehicle vhe = new ParkedVehicle() {MemberId= 1, RegistrationNumber = "ABC542", VTId=1,Color = "Black",Brand= "Volovo",Model="xc90",NumberOfWheels= 4, ParkTime = DateTime.Now};
+            VehicleType vtype = new VehicleType() { VTId = 1, VTName = "Bus" };
+            context.VehicleTypes.AddOrUpdate(vt => vt.VTName, vtype);
+
+            ParkedVehicle vhe = new ParkedVehicle() {MemberId= 9, RegistrationNumber = "ABC542", VTId=1,Color = "Black",Brand= "Volovo",Model="xc90",NumberOfWheels= 4, ParkTime = DateTime.Now};
             context.ParkedVehicles.AddOrUpdate(t => t.RegistrationNumber, vhe);
+            context.SaveChanges();
 
 
         }

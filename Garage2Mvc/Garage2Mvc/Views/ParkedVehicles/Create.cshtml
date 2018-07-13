@@ -1,4 +1,4 @@
-﻿@model Garage2Mvc.Models.ParkedVehicle
+﻿@model Garage2Mvc.Models.ParkedVehicleViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -20,18 +20,19 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.VehicleType, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ValidVehicleTypes, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.VehicleType, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DropDownListFor(model => model.VTId, new SelectList(Model.ValidVehicleTypes, "VTId", "VTName"),  new { @class = "form-control" } )
             @*@Html.EnumDropDownListFor(model => model.VehicleType, new { @class = "form-control" })*@
-            @Html.ValidationMessageFor(model => model.VehicleType, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.VTId, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.MemberId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.MemberId, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.EditorFor(model => model.MemberId, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.DropDownListFor(model => model.MemberId, new SelectList(Model.Members, "MemberId", "FirstName"),  new { @class = "form-control" } )
             @Html.ValidationMessageFor(model => model.MemberId, "", new { @class = "text-danger" })
         </div>
     </div>

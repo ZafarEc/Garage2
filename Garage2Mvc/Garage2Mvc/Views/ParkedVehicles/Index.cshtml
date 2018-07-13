@@ -6,90 +6,86 @@
 
 <h2>Garage</h2>
 
-<p>
-    @*@Html.ActionLink("Create New", "Create")*@
-    @Html.ActionLink("Parked Vehicle", "Create")
-</p>
+@using (Html.BeginForm())
+{
 
-
-       @using (Html.BeginForm())
-       {
-
-        <p>
-            Find by RegistrationNo: @Html.TextBox("SearchString")
-            <input type="submit" value="Search" />
-        </p>
-       }
-        
-
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.VehicleType)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RegistrationNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Color)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Brand)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Model)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.NumberOfWheels)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MemberId)
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.ParkTime)*@
-                    @Html.ActionLink("CheckIn", "Index", new { sortOrder = ViewBag.DateSortVehicle })
-                </th>
-
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.VehicleType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegistrationNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfWheels)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ParkTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MemberId)
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-
-                @Html.ActionLink("CheckOut", "CheckOut", new { id = item.Id })
-
-            </td>
-
-        </tr>
-
+    <div class="indeximg"></div>
+    <p>
+        Find by RegistrationNo: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
 }
 
-        </table>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfWheels)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ParkTime)*@
+            @Html.ActionLink("CheckIn", "Index", new { sortOrder = ViewBag.DateSortVehicle })
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleType.VTName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfWheels)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.FirstName)
+            @Html.DisplayFor(modelItem => item.Member.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkTime)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+
+            @Html.ActionLink("CheckOut", "CheckOut", new { id = item.Id })
+
+        </td>
+
+    </tr>
+
+    }
+
+</table>
